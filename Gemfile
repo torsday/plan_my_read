@@ -43,6 +43,8 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'better_errors', group: [:development, :test]
 gem 'haml-rails'
+gem 'sextant',       group: [:development, :test]
 
 gem 'rspec-rails', group: [:development, :test]

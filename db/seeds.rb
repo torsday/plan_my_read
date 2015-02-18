@@ -32,3 +32,7 @@ Book.create(
   :isbn13 => "9780201100884"
 ) 
 
+BookList.create(
+  :user => User.first,
+  :title => "Tech books I've always wanted to read"
+)

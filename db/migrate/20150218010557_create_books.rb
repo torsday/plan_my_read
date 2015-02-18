@@ -3,7 +3,7 @@ class CreateBooks < ActiveRecord::Migration
     create_table :books do |t|
       t.string :title
       t.integer :page_count
-      t.integer :isbn13
+      t.string :isbn13
 
       t.timestamps null: false
     end

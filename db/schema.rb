@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20150218031921) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "books", ["isbn13"], name: "index_books_on_isbn13", unique: true, using: :btree
+
   create_table "books_book_lists", force: :cascade do |t|
     t.integer  "book_id"
     t.integer  "book_list_id"

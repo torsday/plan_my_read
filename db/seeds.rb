@@ -36,3 +36,10 @@ BookList.create(
   :user => User.first,
   :title => "Tech books I've always wanted to read"
 )
+
+Book.all.each do |b|
+  BooksBookList.create(
+    :book_list => BookList.first,
+    :book => b
+  )
+end

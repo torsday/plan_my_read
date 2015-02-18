@@ -1,0 +1,10 @@
+%h1="Welcome"
+%h2="Users"
+- @users.each do |u|
+  %p=u.email
+%h2="Book Lists"
+- @book_lists.each do |bl|
+  %p=link_to bl.title, bl
+%h2="Books"
+- @books.each do |b|
+  %p=link_to b.title, b

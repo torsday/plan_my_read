@@ -8,7 +8,7 @@
 
 User.create(:email => "test", :password => "test", :password_confirmation => "test")
 
-Book.create(
+geb = Book.create(
   :title => "Gödel, Escher, Bach",
   :page_count => 777,
   :isbn13 => "9780465026562"
@@ -30,7 +30,7 @@ Book.create(
   :title => "Compilers: Principles, Techniques, and Tools",
   :page_count => 500,
   :isbn13 => "9780201100884"
-) 
+)
 
 BookList.create(
   :user => User.first,
@@ -40,6 +40,34 @@ BookList.create(
 Book.all.each do |b|
   BooksBookList.create(
     :book_list => BookList.first,
+    :book => b
+  )
+end
+
+b_list_b = BookList.create(
+  :user => User.first,
+  :title => "Food for the Soul"
+)
+
+books_for_list_b = []
+
+books_for_list_b << Book.create(
+  :title => "Everyday Zen: Love and Work",
+  :page_count => 214,
+  :isbn13 => "9780060607340"
+)
+
+books_for_list_b << Book.create(
+  :title => "Nothing Special",
+  :page_count => 288,
+  :isbn13 => "9780062511171"
+)
+
+books_for_list_b << geb
+
+books_for_list_b.each do |b|
+  BooksBookList.create(
+    :book_list => b_list_b,
     :book => b
   )
 end

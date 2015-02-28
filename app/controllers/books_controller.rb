@@ -10,6 +10,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @book = Book.where(:id => params[:id]).first
   end
 
   # GET /books/new

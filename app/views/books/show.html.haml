@@ -4,3 +4,12 @@
 = link_to 'Edit', edit_book_path(@book)
 \|
 = link_to 'Back', books_path
+
+%h1=@book.title
+
+%p="Pages: #{@book.page_count}"
+
+%h3="Found in these lists"
+
+- @book.book_lists.each do |bl|
+  %h5= link_to bl.title, book_list_path(bl)

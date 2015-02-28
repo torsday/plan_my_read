@@ -4,3 +4,8 @@
 = link_to 'Edit', edit_book_list_path(@book_list)
 \|
 = link_to 'Back', book_lists_path
+
+%H1=@book_list.title
+
+- @book_list.books.each do |b|
+  %h3= link_to b.title, book_path(b)

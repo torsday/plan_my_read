@@ -6,6 +6,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %h3= link_to "Plan my Read", root_path
     - if current_user
       Signed in as #{current_user.email} | #{link_to "Logout", '/logout'}
     - else

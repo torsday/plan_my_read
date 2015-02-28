@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.where(:id => params[:id]).first
+  end
+
   private
 
   def user_params

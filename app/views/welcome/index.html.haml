@@ -1,7 +1,7 @@
 %h1="Welcome"
 %h2="Users"
 - @users.each do |u|
-  %p=u.email
+  %p=link_to u.email, user_path(u)
 %h2="Book Lists"
 - @book_lists.each do |bl|
   %p=link_to "#{bl.title}, by #{bl.user.email}", bl

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path
+
+%h1=@user.email
+
+%h2="Lists"
+
+- @user.book_lists.each do |bl|
+  %h3= link_to bl.title, book_list_path(bl)
+
+%h2="Books"
+
+- @user.books.each do |b|
+  %h3= link_to b.title, book_path(b)

@@ -89,16 +89,22 @@ zen_titles = [
   "Nothing Special",
 ]
 
+c = 1
 tech_titles.each do |t|
   BooksBookList.create(
     :book_list => BookList.where(:title => "Tech books I've always wanted to read").first,
-    :book => Book.where(:title => t).first
+    :book => Book.where(:title => t).first,
+    :position => c
   )
+  c += 1
 end
 
+c = 1
 zen_titles.each do |t|
   BooksBookList.create(
     :book_list => BookList.where(:title => "Food for the Soul").first,
-    :book => Book.where(:title => "Food for the Soul").first
+    :book => Book.where(:title => "Food for the Soul").first,
+    :position => c
   )
+  c += 1
 end

@@ -39,9 +39,12 @@ ActiveRecord::Schema.define(version: 20150218031921) do
   create_table "books_book_lists", force: :cascade do |t|
     t.integer  "book_id"
     t.integer  "book_list_id"
+    t.integer  "position"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
+
+  add_index "books_book_lists", ["book_list_id", "position"], name: "index_books_book_lists_on_book_list_id_and_position", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email"

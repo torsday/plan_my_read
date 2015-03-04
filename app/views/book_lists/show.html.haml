@@ -7,5 +7,9 @@
 
 %H1=@book_list.title
 
+%h3="I want to read #{@book_list.page_count} pages, at #{@pages_per_day} pages/day, finishing #{(@book_list.end_date - DateTime.now).to_i} days from now"
+
 - @book_list.books.each do |b|
-  %h3= link_to b.title, book_path(b)
+  %h3
+    = link_to b.title, book_path(b)
+    , #{b.page_count} pages

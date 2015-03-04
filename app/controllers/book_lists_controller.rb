@@ -11,6 +11,7 @@ class BookListsController < ApplicationController
   # GET /book_lists/1.json
   def show
     @book_list = BookList.where(:id => params[:id]).first
+    @pages_per_day = (@book_list.page_count / (@book_list.end_date - DateTime.now)).to_i
   end
 
   # GET /book_lists/new

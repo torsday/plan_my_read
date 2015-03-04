@@ -34,7 +34,8 @@ Book.create(
 
 BookList.create(
   :user => User.first,
-  :title => "Tech books I've always wanted to read"
+  :title => "Tech books I've always wanted to read",
+  :end_date => 5.weeks.from_now
 )
 
 Book.all.each do |b|
@@ -46,7 +47,8 @@ end
 
 b_list_b = BookList.create(
   :user => User.first,
-  :title => "Food for the Soul"
+  :title => "Food for the Soul",
+  :end_date => 3.weeks.from_now
 )
 
 books_for_list_b = []

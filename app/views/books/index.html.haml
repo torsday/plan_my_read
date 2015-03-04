@@ -6,11 +6,11 @@
       %th
       %th
       %th
-      
+
   %tbody
     - @books.each do |book|
       %tr
-        %td= link_to 'Show', book
+        %td= link_to book.title, book
         %td= link_to 'Edit', edit_book_path(book)
         %td= link_to 'Destroy', book, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

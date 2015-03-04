@@ -19,8 +19,11 @@ ActiveRecord::Schema.define(version: 20150218031921) do
   create_table "book_lists", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "page_count_total"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "books", force: :cascade do |t|

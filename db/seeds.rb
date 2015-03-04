@@ -15,6 +15,12 @@ geb = Book.create(
 )
 
 Book.create(
+  :title => "Algorithms (4th Edition)",
+  :page_count => 992,
+  :isbn13 => "9780321573513"
+)
+
+Book.create(
   :title => "Introduction to Algorithms",
   :page_count => 1180,
   :isbn13 => "9780262032933"

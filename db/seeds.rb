@@ -6,9 +6,16 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(:email => "test", :password => "test", :password_confirmation => "test")
+# ---
+# CREATE USERS
 
-geb = Book.create(
+User.create(:email => "test", :password => "test", :password_confirmation => "test")
+User.create(:email => "test2", :password => "test2", :password_confirmation => "test2")
+
+# ---
+# CREATE BOOKS
+
+Book.create(
   :title => "Gödel, Escher, Bach",
   :page_count => 777,
   :isbn13 => "9780465026562"
@@ -38,44 +45,60 @@ Book.create(
   :isbn13 => "9780201100884"
 )
 
+Book.create(
+  :title => "Everyday Zen: Love and Work",
+  :page_count => 214,
+  :isbn13 => "9780060607340"
+)
+
+Book.create(
+  :title => "Nothing Special",
+  :page_count => 288,
+  :isbn13 => "9780062511171"
+)
+
+# ---
+# CREATE BOOK LISTS
+
 BookList.create(
   :user => User.first,
   :title => "Tech books I've always wanted to read",
   :end_date => 5.weeks.from_now
 )
 
-Book.all.each do |b|
-  BooksBookList.create(
-    :book_list => BookList.first,
-    :book => b
-  )
-end
-
-b_list_b = BookList.create(
+BookList.create(
   :user => User.first,
   :title => "Food for the Soul",
   :end_date => 3.weeks.from_now
 )
 
-books_for_list_b = []
+# ---
+# POPULATE BOOK LISTS
 
-books_for_list_b << Book.create(
-  :title => "Everyday Zen: Love and Work",
-  :page_count => 214,
-  :isbn13 => "9780060607340"
-)
+tech_titles = [
+  "Gödel, Escher, Bach",
+  "Algorithms (4th Edition)",
+  "Introduction to Algorithms",
+  "The Art of Unix Programming",
+  "Compilers: Principles, Techniques, and Tools",
+]
 
-books_for_list_b << Book.create(
-  :title => "Nothing Special",
-  :page_count => 288,
-  :isbn13 => "9780062511171"
-)
+zen_titles = [
+  "Gödel, Escher, Bach",
+  "Everyday Zen: Love and Work",
+  "Nothing Special",
+]
 
-books_for_list_b << geb
-
-books_for_list_b.each do |b|
+tech_titles.each do |t|
   BooksBookList.create(
-    :book_list => b_list_b,
-    :book => b
+    :book_list => BookList.where(:title => "Tech books I've always wanted to read").first,
+    :book => Book.where(:title => t).first
+  )
+end
+
+zen_titles.each do |t|
+  BooksBookList.create(
+    :book_list => BookList.where(:title => "Food for the Soul").first,
+    :book => Book.where(:title => "Food for the Soul").first
   )
 end

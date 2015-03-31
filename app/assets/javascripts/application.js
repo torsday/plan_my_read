@@ -15,3 +15,9 @@
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $( "#all_books, #list_books" ).sortable({
+    connectWith: ".connectedSortable"
+  }).disableSelection();
+});

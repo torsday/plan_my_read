@@ -5,3 +5,17 @@
 = link_to 'Show', @book_list
 \|
 = link_to 'Back', book_lists_path
+
+%h1 Edit Book List
+
+.bi_lists
+
+  %ul#all_books.connectedSortable
+    %tbody
+      - @list.books.each do |book|
+        %li= link_to book.title, book
+
+  %ul#list_books.connectedSortable
+    %tbody
+      - @all_books.each do |book|
+        %li= link_to book.title, book

@@ -21,6 +21,8 @@ class BookListsController < ApplicationController
 
   # GET /book_lists/1/edit
   def edit
+    @list = BookList.where(:id => params[:id]).first
+    @all_books = Book.all.select {|bk| @list.books.exclude?(bk)}
   end
 
   # POST /book_lists

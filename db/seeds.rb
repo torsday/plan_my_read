@@ -103,7 +103,7 @@ c = 1
 zen_titles.each do |t|
   BooksBookList.create(
     :book_list => BookList.where(:title => "Food for the Soul").first,
-    :book => Book.where(:title => "Food for the Soul").first,
+    :book => Book.where(:title => t).first,
     :position => c
   )
   c += 1
